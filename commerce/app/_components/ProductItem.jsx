@@ -5,7 +5,7 @@ import Link from "next/link";
 function ProductItem({ product }) {
   return (
     <div className="cursor-pointer bg-white p-4 rounded shadow flex flex-col h-150px w-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:z-10 relative">
-      <Link href={`/Product-details/${product.id}`}>
+      <Link href={`/Product-details/${product?.id}`}>
         <div>
           {console.log(
             "Full Image Path:",
