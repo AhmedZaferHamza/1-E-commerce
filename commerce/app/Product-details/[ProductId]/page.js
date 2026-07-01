@@ -4,9 +4,19 @@ import BreadCrumb from "../../_components/BreadCrumb";
 import React, { useEffect, useState } from "react";
 import ProductBanner from "./_components/ProductBanner";
 import ProductInfo from "./_components/ProductInfo";
+import { useParams } from "next/navigation";
+import MinProductList from "./_components/MinProductList";
 
-function ProductDetails({ params }) {
+function ProductDetails({}) {
   const [productDetails, setproductDetails] = useState([]);
+  const params = useParams();
+  const id = Number(params.ProductId);
+  // Change idToFind to id to match the variable declared above
+  const index = productDetails.findIndex((item) => item.id === id);
+
+  console.log(index);
+  const category1 = productDetails?.[index]?.Category;
+  console.log(category1);
 
   useEffect(() => {
     getLatestProducts();
@@ -22,13 +32,27 @@ function ProductDetails({ params }) {
         console.error(err);
       });
   };
+  console.log(productDetails);
+
+  const currentCategory = productDetails[index]?.Category;
+
+  const sameCategory = productDetails.reduce((acc, item, idx) => {
+    if (item?.Category === currentCategory && idx !== index) {
+      acc.push(idx);
+    }
+    return acc;
+  }, []);
+
+  console.log(sameCategory);
+
   return (
     <div className="px-10 py-8 md:px-28">
       <BreadCrumb />
-      <div className="flex flex-col items-center md:items-start md:flex-row justify-between mt-12">
+      <div className="flex flex-col items-center md:items-center md:flex-row gap-8 mt-12">
         <ProductBanner product={productDetails} />
         <ProductInfo product={productDetails} />
       </div>
+      <MinProductList productList={sameCategory} />
     </div>
   );
 }

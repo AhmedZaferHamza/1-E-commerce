@@ -13,15 +13,16 @@ function ProductBanner({ product }) {
   console.log(id);
 
   return (
-    <div>
-      {console.log(product)}
-      <Image className="rounded-xl"
-        src={product?.[index]?.img?.url} // Use the dynamic index instead of hardcoded [1]
-        width={400}
-        height={400}
-        alt={product?.[index]?.title || "product image"}
-      />
-    </div>
+    <div className="w-full max-w-[450px] aspect-square rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white p-2">
+    <Image 
+      className="rounded-xl w-full h-full object-cover"
+      src={product?.[index]?.img?.url}
+      width={450}
+      height={450}
+      alt={product?. [index]?.title || "product image"}
+      priority
+    />
+  </div>
   );
 }
 

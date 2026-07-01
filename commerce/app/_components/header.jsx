@@ -1,11 +1,12 @@
+import Link from "next/link";
 function Header() {
   return (
     <header className="bg-white">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-        <a className="block text-teal-600" href="#">
+        <Link href="/" className="block text-teal-600">
           <span className="sr-only">Home</span>
           <img src="logo.svg" alt="logo" width={50} height={50} />
-        </a>
+        </Link>
 
         <div className="flex flex-1 items-center justify-end md:justify-between">
           <nav aria-label="Global" className="hidden md:block">

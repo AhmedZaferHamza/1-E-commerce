@@ -1,21 +1,23 @@
 "use client";
 import { useParams } from "next/navigation";
 import React from "react";
-function ProductInfo({product}) {
-   const params = useParams();
-    const id = Number(params.ProductId);
-    // Change idToFind to id to match the variable declared above
-    const index = product.findIndex((item) => item.id === id);
+function ProductInfo({ product }) {
+  const params = useParams();
+  const id = Number(params.ProductId);
+  // Change idToFind to id to match the variable declared above
+  const index = product.findIndex((item) => item.id === id);
   return (
-    <div>
-      <h2>
-        {product?.[index]?.title}
-        <p>
-          {product?.[index]?.description?.[0]?.}        
-        </p>
-      </h2>
+    <div className="flex flex-col gap-y-8 mt-6 ">
+      <h2 className="text-center md:text-left text-[30px] font-bold">{product?.[index]?.title}</h2>
+      <p className="text-center md:text-left">Description: {product?.[index]?.description?.[0]?.children?.[0]?.text}.</p>
+      <div className="flex justify-between  max-[440px]:flex-col">
+        <span className="text-[#2C4CFD] text-center">
+          Price: ${product?.[index]?.price}
+        </span>
+        <button>Add to cart</button>
+      </div>
     </div>
-  )
+  );
 }
 
-export default ProductInfo
+export default ProductInfo;

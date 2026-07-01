@@ -33,3 +33,8 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+/*
+git add .
+git commit -m "update code"
+git push
+*/
