@@ -14,7 +14,9 @@ function ProductInfo({ product }) {
         <span className="text-[#2C4CFD] text-center">
           Price: ${product?.[index]?.price}
         </span>
-        <button>Add to cart</button>
+        <button className="bg-[#2C4CFD] text-white py-2 px-4 rounded-md hover:bg-[#1a3ae0] cursor-pointer transition-colors duration-300 max-[440px]:mt-4">
+          Add to cart
+        </button>
       </div>
     </div>
   );

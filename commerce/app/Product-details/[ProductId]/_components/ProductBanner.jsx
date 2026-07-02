@@ -13,7 +13,7 @@ function ProductBanner({ product }) {
   console.log(id);
 
   return (
-    <div className="w-full max-w-[450px] aspect-square rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white p-2">
+    <div className="w-full max-w-[550px] aspect-square rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white p-2">
     <Image 
       className="rounded-xl w-full h-full object-cover"
       src={product?.[index]?.img?.url}

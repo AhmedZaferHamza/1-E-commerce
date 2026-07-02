@@ -1,12 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-function BreadCrumb({ product }) {
+function BreadCrumb2({ product }) {
   console.log(product);
-  const params = useParams();
-  const id = Number(params.ProductId);
-  const index = product?.findIndex?.((item) => item.id == id);
-  console.log(index);
 
   return (
     <div>
@@ -51,40 +47,18 @@ function BreadCrumb({ product }) {
           </li>
 
           <li>
-            <Link
-             href={`/categoryAll/${product?.[index]?.Category}`}
-             className="block transition-colors hover:text-black"
+            <div
+             className="block transition-colors pointer-events-none "
             >
-              {product?.[index]?.Category}
-            </Link>
+              {product?.[0]?.Category}
+            </div>
           </li>
 
-          <li className="rtl:rotate-180">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-4"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </li>
 
-          <li>
-            <span
-              className="block transition-colors pointer-events-none "
-            >
-              {product?.[index]?.title}
-            </span>
-          </li>
         </ol>
       </nav>
     </div>
   );
 }
 
-export default BreadCrumb;
+export default BreadCrumb2;

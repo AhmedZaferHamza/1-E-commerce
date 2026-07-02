@@ -34,25 +34,22 @@ function ProductDetails({}) {
   };
   console.log(productDetails);
 
-  const currentCategory = productDetails[index]?.Category;
+ const currentCategory = productDetails[index]?.Category;
 
-  const sameCategory = productDetails.reduce((acc, item, idx) => {
-    if (item?.Category === currentCategory && idx !== index) {
-      acc.push(idx);
-    }
-    return acc;
-  }, []);
+  const similarProducts = productDetails.filter((item, idx) => {
+    return item?.Category === currentCategory && idx !== index;
+  });
 
-  console.log(sameCategory);
+  console.log(similarProducts);
 
   return (
     <div className="px-10 py-8 md:px-28">
-      <BreadCrumb />
+      <BreadCrumb product={productDetails}/>
       <div className="flex flex-col items-center md:items-center md:flex-row gap-8 mt-12">
         <ProductBanner product={productDetails} />
         <ProductInfo product={productDetails} />
       </div>
-      <MinProductList productList={sameCategory} />
+      <MinProductList productList={similarProducts} category={category1}/>
     </div>
   );
 }
