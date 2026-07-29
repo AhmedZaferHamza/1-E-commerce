@@ -12,11 +12,9 @@ export default function CategoryPage() {
 
   const category = params?.category ? decodeURIComponent(params.category) : "";
   console.log(category);
-
-  useEffect(() => {
-    getLatestProducts();
-  }, []);
-
+useEffect(() => {
+  getLatestProducts();
+}, []);
   const getLatestProducts = () => {
     ProductApis.getLatestProducts()
       .then((res) => {

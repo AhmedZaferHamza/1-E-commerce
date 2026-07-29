@@ -3,9 +3,14 @@ import ProductList from './ProductList';
 import ProductApis from '../_utils/ProductApis';
 
 export default async function ProductSection() {
-  // جلب البيانات على السيرفر قبل إرسال كود الـ HTML للمتصفح
-  const res = await ProductApis.getLatestProducts();
-  const productList = res?.data?.data || [];
+  let productList = [];
+  
+  try {
+    const res = await ProductApis.getLatestProducts();
+    productList = res?.data?.data || [];
+  } catch (error) {
+    console.error("فشل جلب المنتجات:", error.message);
+  }
 
   return (
     <div className='bg-gray-100 py-8 justify-center items-center flex p-4'>
