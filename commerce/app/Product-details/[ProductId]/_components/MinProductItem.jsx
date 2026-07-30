@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import AddToCartBtn from "../_components/AddToCartBtn"
+
 
 function MinProductItem({ item, isLoading }) {
   // 1. حالة الـ Skeleton Loader عند التحميل
@@ -51,9 +53,7 @@ function MinProductItem({ item, isLoading }) {
         </p>
         <div className="flex items-center justify-between mt-2">
           <span className="font-semibold text-gray-800">${item?.price}</span>
-          <button className="bg-blue-500 text-white px-3 py-1.5 rounded-md text-xs font-medium">
-            Add
-          </button>
+              <AddToCartBtn/>
         </div>
       </div>
     </Link>

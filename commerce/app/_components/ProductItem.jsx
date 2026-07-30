@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import AddToCartBtn from "../Product-details/[ProductId]/_components/AddToCartBtn"
 
 function ProductItem({ product }) {
   return (
@@ -31,9 +32,7 @@ function ProductItem({ product }) {
               <span className="text-base md:text-lg font-semibold text-black shrink-0">
                 ${product?.price}
               </span>
-              <button className="bg-blue-500 text-white text-xs md:text-sm py-2 px-2 md:px-6 rounded hover:bg-blue-600 font-medium transition-colors flex-1 text-center min-w-0 truncate">
-                Add to Cart
-              </button>
+              <AddToCartBtn/>
             </div>
           </div>
         </div>
